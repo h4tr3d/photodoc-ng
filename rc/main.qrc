@@ -1,0 +1,34 @@
+<RCC>
+    <qresource prefix="/interface">
+        <file>images/bottons/camera.png</file>
+        <file>images/bottons/cancel.png</file>
+        <file>images/bottons/compose-image.png</file>
+        <file>images/bottons/donate.png</file>
+        <file>images/bottons/help.png</file>
+        <file>images/bottons/link.png</file>
+        <file>images/bottons/matrix-settings.png</file>
+        <file>images/bottons/new.png</file>
+        <file>images/bottons/open.png</file>
+        <file>images/bottons/remove.png</file>
+        <file>images/bottons/rotate-left.png</file>
+        <file>images/bottons/rotate-right.png</file>
+        <file>images/bottons/save.png</file>
+        <file>images/bottons/settings.png</file>
+        <file>images/bottons/to-editor.png</file>
+        <file>images/labels/brightness.png</file>
+        <file>images/labels/contrast.png</file>
+        <file>images/icon.png</file>
+        <file>images/bottons/print.png</file>
+        <file>images/bottons/apply.png</file>
+        <file>images/bottons/down.png</file>
+        <file>images/bottons/up.png</file>
+        <file>images/bottons/list-add.png</file>
+        <file>images/bottons/list-remove.png</file>
+    </qresource>
+    <qresource prefix="/process">
+        <file>images/photo/ellipse.png</file>
+    </qresource>
+    <qresource prefix="/samples">
+        <file>images/start.jpg</file>
+    </qresource>
+</RCC>
