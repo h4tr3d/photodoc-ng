@@ -19,12 +19,16 @@
 **************************************************************************/
 
 #include <QtGui/QApplication>
+
+#include <iostream>
+
 #include "mainwindow.h"
 #include "settings.h"
 #include "matrixview.h"
 #include "utils.h"
 
-#include <iostream>
+#include "gphoto2/gpcamera.h"
+
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -32,6 +36,20 @@ int main(int argc, char *argv[])
     qApp->setApplicationName("PhotoDocNG");
     qApp->setApplicationVersion("1.0.5+");
     qApp->setOrganizationName("photodoc-ng");
+
+    // TODO
+    QString model, port, print;
+    GPCamera::autoDetect(model, port);
+    print = model + " : " + port;
+    std::cout << qPrintable(print) << "\n";
+
+    QStringList models, ports;
+    GPCamera::autoDetect(models, ports);
+    for (int i = 0; i < models.count(); i++)
+    {
+        print = models.at(i) + " : " + ports.at(i);
+        std::cout << qPrintable(print) << "\n";
+    }
 
     qRegisterMetaType<PhotoFormat>("PhotoFormat");
     qRegisterMetaTypeStreamOperators<PhotoFormat>("PhotoFormat");

@@ -10,7 +10,8 @@ TARGET = photodoc
 TEMPLATE = app
 CONFIG += warn_on link_pkgconfig
 
-PKGCONFIG += exiv2
+PKGCONFIG += exiv2 libgphoto2
+DEFINES += HAVE_GPHOTO2
 
 SOURCES += src/main.cpp\
         src/mainwindow.cpp \
@@ -21,7 +22,12 @@ SOURCES += src/main.cpp\
     src/matrixview.cpp \
     src/settingsdialog.cpp \
     src/formimagematrix.cpp \
-    src/imageprocess.cpp
+    src/imageprocess.cpp \
+    src/gphoto2/gpiteminfo.cpp \
+    src/gphoto2/gpcamera.cpp \
+    src/gphoto2/dkcamera.cpp \
+    src/gphoto2/photoinfocontainer.cpp \
+    src/md5/md5.c
 
 HEADERS  += src/mainwindow.h \
     src/mgraphicsscene.h \
@@ -31,7 +37,12 @@ HEADERS  += src/mainwindow.h \
     src/matrixview.h \
     src/settingsdialog.h \
     src/formimagematrix.h \
-    src/imageprocess.h
+    src/imageprocess.h \
+    src/gphoto2/gpiteminfo.h \
+    src/gphoto2/gpcamera.h \
+    src/gphoto2/dkcamera.h \
+    src/gphoto2/photoinfocontainer.h \
+    src/md5/md5.h
 
 FORMS    += ui/mainwindow.ui \
     src/settingsdialog.ui \

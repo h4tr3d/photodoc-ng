@@ -36,5 +36,8 @@ QRectF getPhotoRect(QSizeF real_size, QSizeF view_size, PhotoFormat format, QLis
 /* Platform independ user name */
 const char *getUserName();
 
+/* MD5 wrappers */
+QString    getMd5HexDigest(QByteArray data);
+QByteArray getMd5(QByteArray data);
 
 #endif // UTILS_H

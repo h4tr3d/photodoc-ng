@@ -32,7 +32,7 @@
 #include <ctype.h>
 
 #include "utils.h"
-
+#include "md5/md5.h"
 
 //
 // Get rect of selection result
@@ -113,4 +113,24 @@ const char *getUserName()
 #endif
 
     return user_name;
+}
+
+QString getMd5HexDigest(QByteArray data)
+{
+    QByteArray hash = getMd5(data);
+    QString result;
+    for (int i = 0; i < hash.count(); i++)
+    {
+        result.append(QString("%1").arg((int)hash.at(i), 2, 16));
+    }
+    return result;
+}
+
+QByteArray getMd5(QByteArray data)
+{
+    uint8_t hash[16];
+    memset(hash, 0, sizeof(hash));
+    md5hash((uint8_t*)data.data(), data.size(), hash);
+    QByteArray result((char*)hash, sizeof(hash));
+    return result;
 }
