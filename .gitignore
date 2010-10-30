@@ -6,3 +6,4 @@ object_script.*.*
 *.pro.user
 *.pro.user.*
 .qdevelop
+*.qm
