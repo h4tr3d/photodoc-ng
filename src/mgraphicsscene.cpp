@@ -21,6 +21,7 @@
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
+#include <QKeyEvent>
 
 #include "mgraphicsscene.h"
 
@@ -53,6 +54,18 @@ void MGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
 
         _points << point;
         update();
+    }
+    else if (mouseEvent->button() == Qt::RightButton)
+    {
+        removeLastPoint();
+    }
+}
+
+void MGraphicsScene::keyPressEvent(QKeyEvent *keyEvent)
+{
+    if (keyEvent->key() == Qt::Key_Escape)
+    {
+        removeLastPoint();
     }
 }
 
@@ -113,6 +126,15 @@ void MGraphicsScene::drawForeground(QPainter *painter, const QRectF &rect)
     }
 
     QGraphicsScene::drawForeground(painter, rect);
+}
+
+void MGraphicsScene::removeLastPoint()
+{
+    if (_points.count() > 0)
+    {
+        _points.removeLast();
+    }
+    update();
 }
 
 void MGraphicsScene::showGrid(bool is_grid_shown)

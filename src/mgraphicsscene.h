@@ -89,8 +89,10 @@ public:
 protected:
     void drawForeground(QPainter *painter, const QRectF &rect);
     void mousePressEvent(QGraphicsSceneMouseEvent * mouseEvent);
+    void keyPressEvent(QKeyEvent *keyEvent);
 
 private:
+    void removeLastPoint();
 
 private:
     bool  _is_grid_shown;
