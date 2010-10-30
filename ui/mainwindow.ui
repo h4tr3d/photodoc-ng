@@ -62,9 +62,6 @@
        </item>
        <item>
         <widget class="QToolButton" name="captureFile">
-         <property name="enabled">
-          <bool>false</bool>
-         </property>
          <property name="text">
           <string>Camera</string>
          </property>

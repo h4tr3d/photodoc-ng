@@ -1437,7 +1437,7 @@ bool GPCamera::cameraAbout(QString& about)
 void GPCamera::printGphotoErrorDescription(int errorCode)
 {
 #ifdef HAVE_GPHOTO2
-    qDebug() << "Libgphoto2 error: " << gp_result_as_string(errorCode)
+    qDebug() << "Libgphoto2 error: " << QString::fromLocal8Bit(gp_result_as_string(errorCode))
                   << " (" << errorCode << ")";
 #else
     Q_UNUSED(errorCode);

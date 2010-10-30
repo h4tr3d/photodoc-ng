@@ -24,6 +24,7 @@
         <file>images/bottons/up.png</file>
         <file>images/bottons/list-add.png</file>
         <file>images/bottons/list-remove.png</file>
+        <file>images/bottons/view-refresh.png</file>
     </qresource>
     <qresource prefix="/process">
         <file>images/photo/ellipse.png</file>

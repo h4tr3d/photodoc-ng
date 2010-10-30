@@ -28,7 +28,8 @@ SOURCES += src/main.cpp\
     src/gphoto2/dkcamera.cpp \
     src/gphoto2/photoinfocontainer.cpp \
     src/md5/md5.c \
-    src/mfiledialog.cpp
+    src/mfiledialog.cpp \
+    src/gphotodialog.cpp
 
 HEADERS  += src/mainwindow.h \
     src/mgraphicsscene.h \
@@ -44,11 +45,13 @@ HEADERS  += src/mainwindow.h \
     src/gphoto2/dkcamera.h \
     src/gphoto2/photoinfocontainer.h \
     src/md5/md5.h \
-    src/mfiledialog.h
+    src/mfiledialog.h \
+    src/gphotodialog.h
 
 FORMS    += ui/mainwindow.ui \
     src/settingsdialog.ui \
-    src/formimagematrix.ui
+    src/formimagematrix.ui \
+    src/gphotodialog.ui
 
 RESOURCES += \
     rc/main.qrc

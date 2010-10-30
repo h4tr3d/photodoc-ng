@@ -32,6 +32,7 @@
 #include "utils.h"
 #include "imageprocess.h"
 #include "mfiledialog.h"
+#include "gphotodialog.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -80,22 +81,10 @@ void MainWindow::loadFile(QString file_name)
 {
     if (file_name.isEmpty())
     {
-//        file_name = QFileDialog::getOpenFileName(this,
-//                                                 tr("Open Image"),
-//                                                 "",
-//                                                 tr("All Images (*.jpg *.jpeg *.png *.tiff *.bmp)"));
-
         MFileDialog dlg(this,
                         tr("Open Image"),
                         "",
                         tr("All Images (*.jpg *.jpeg *.png *.tiff *.bmp)"));
-
-        //QSplitter *splitter = dlg.findChild<QSplitter*>("splitter");
-        //std::cout << "Splitter: " << splitter << "\n";
-
-        //QLabel *label = new QLabel("TEST");
-        //splitter->addWidget(label);
-        //label->setPixmap(QPixmap(":/"));
 
         if (dlg.exec() && dlg.selectedFiles().count() == 1)
         {
@@ -441,3 +430,13 @@ void MainWindow::on_rotateRight_clicked()
 }
 
 
+void MainWindow::on_captureFile_clicked()
+{
+    GphotoDialog dlg(this);
+
+    if (dlg.exec() == QDialog::Accepted)
+    {
+        QString file_name = dlg.getDowloadedFileName();
+        loadFile(file_name);
+    }
+}

@@ -27,35 +27,33 @@
 #include "matrixview.h"
 #include "utils.h"
 
-#include "gphoto2/gpcamera.h"
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    // Set application name ans version
     qApp->setApplicationName("PhotoDocNG");
     qApp->setApplicationVersion("1.0.5+");
     qApp->setOrganizationName("photodoc-ng");
 
-    // TODO
-    QString model, port, print;
-    GPCamera::autoDetect(model, port);
-    print = model + " : " + port;
-    std::cout << qPrintable(print) << "\n";
+    // Translation
+    QTranslator qt_translator;
+    qt_translator.load("qt_" + QLocale::system().name(),
+             QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    a.installTranslator(&qt_translator);
 
-    QStringList models, ports;
-    GPCamera::autoDetect(models, ports);
-    for (int i = 0; i < models.count(); i++)
-    {
-        print = models.at(i) + " : " + ports.at(i);
-        std::cout << qPrintable(print) << "\n";
-    }
+    // Portable solution
+    QTranslator app_translator;
+    app_translator.load("photodoc-ng_" + QLocale::system().name());
+    a.installTranslator(&app_translator);
 
+    // Register custom types
     qRegisterMetaType<PhotoFormat>("PhotoFormat");
     qRegisterMetaTypeStreamOperators<PhotoFormat>("PhotoFormat");
     qRegisterMetaType<MatrixView>("MatrixView");
     qRegisterMetaTypeStreamOperators<MatrixView>("MatrixView");
 
+    // Init settings istance, load settings
     Settings *sets = Settings::instance();
     sets->load();
 
