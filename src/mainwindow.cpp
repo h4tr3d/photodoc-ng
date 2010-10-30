@@ -63,6 +63,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
                         .arg(qApp->applicationName())
                         .arg(qApp->applicationVersion());
     setWindowTitle(title);
+
+    status_bar->showMessage(tr("Load photo, select three dots: on pate (red), on bridge of nose (green) and on chin (blue) and turn Compose button"));
 }
 
 void MainWindow::changeEvent(QEvent *e)

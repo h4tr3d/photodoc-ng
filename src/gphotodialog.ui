@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>GPhoto2</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
@@ -24,10 +24,17 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QComboBox" name="cameraList"/>
+       <widget class="QComboBox" name="cameraList">
+        <property name="toolTip">
+         <string>Select camera from list</string>
+        </property>
+       </widget>
       </item>
       <item>
        <widget class="QToolButton" name="cameraRefresh">
+        <property name="toolTip">
+         <string>Refresh camera list</string>
+        </property>
         <property name="text">
          <string>...</string>
         </property>
@@ -63,11 +70,17 @@
           <enum>Qt::Vertical</enum>
          </property>
          <widget class="QListWidget" name="cameraDirs">
+          <property name="toolTip">
+           <string>Directroyes list</string>
+          </property>
           <property name="verticalScrollBarPolicy">
            <enum>Qt::ScrollBarAlwaysOn</enum>
           </property>
          </widget>
          <widget class="QListWidget" name="cameraItems">
+          <property name="toolTip">
+           <string>Files list</string>
+          </property>
           <property name="verticalScrollBarPolicy">
            <enum>Qt::ScrollBarAlwaysOn</enum>
           </property>
@@ -81,6 +94,9 @@
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QPushButton" name="itemGet">
+           <property name="toolTip">
+            <string>Download selected file and return to main window</string>
+           </property>
            <property name="text">
             <string>Get</string>
            </property>
@@ -88,6 +104,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="itemDel">
+           <property name="toolTip">
+            <string>Delete selected photo (if camera support)</string>
+           </property>
            <property name="text">
             <string>Delete</string>
            </property>
@@ -110,6 +129,9 @@
          <width>160</width>
          <height>16777215</height>
         </size>
+       </property>
+       <property name="toolTip">
+        <string>Preview area</string>
        </property>
        <property name="frameShape">
         <enum>QFrame::Box</enum>

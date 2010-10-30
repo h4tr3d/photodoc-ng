@@ -17,7 +17,7 @@
    <item>
     <widget class="QFrame" name="frame">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -25,7 +25,7 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>36</height>
+       <height>0</height>
       </size>
      </property>
      <property name="frameShape">
@@ -36,7 +36,11 @@
      </property>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
-       <widget class="QComboBox" name="matrixType"/>
+       <widget class="QComboBox" name="matrixType">
+        <property name="toolTip">
+         <string>Select matrix format: page type, amount of photos on page and so on</string>
+        </property>
+       </widget>
       </item>
       <item>
        <spacer name="horizontalSpacer">
@@ -53,6 +57,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="composePhoto">
+        <property name="toolTip">
+         <string>Load photo from internal composer</string>
+        </property>
         <property name="text">
          <string>Internal</string>
         </property>
@@ -63,6 +70,10 @@
       </item>
       <item>
        <widget class="QToolButton" name="passToEditor">
+        <property name="toolTip">
+         <string>Load files that was be passed into External editor.
+This is work only if we passed photo to external editor.</string>
+        </property>
         <property name="text">
          <string>External</string>
         </property>
@@ -78,6 +89,9 @@
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
       <widget class="QGraphicsView" name="graphicsView">
+       <property name="toolTip">
+        <string>Matrix preview area</string>
+       </property>
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOn</enum>
        </property>
@@ -114,7 +128,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="exifName"/>
+         <widget class="QLineEdit" name="exifName">
+          <property name="toolTip">
+           <string>Name of people</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_2">
@@ -124,7 +142,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="exifDate"/>
+         <widget class="QLineEdit" name="exifDate">
+          <property name="toolTip">
+           <string>Date of creation</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_3">
@@ -134,7 +156,11 @@
          </widget>
         </item>
         <item>
-         <widget class="QLineEdit" name="exifType"/>
+         <widget class="QLineEdit" name="exifType">
+          <property name="toolTip">
+           <string>Type of photo</string>
+          </property>
+         </widget>
         </item>
         <item>
          <widget class="QLabel" name="label_4">
@@ -154,7 +180,7 @@
    <item>
     <widget class="QFrame" name="frame_2">
      <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
@@ -162,7 +188,7 @@
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>36</height>
+       <height>0</height>
       </size>
      </property>
      <property name="frameShape">
@@ -194,6 +220,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="matrixSave">
+        <property name="toolTip">
+         <string>Save matrix to disk</string>
+        </property>
         <property name="text">
          <string>Save</string>
         </property>
@@ -201,6 +230,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="matrixPrintPrview">
+        <property name="toolTip">
+         <string>Preview matrix (before print)</string>
+        </property>
         <property name="text">
          <string>Preview</string>
         </property>
@@ -208,6 +240,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="matrixPrint">
+        <property name="toolTip">
+         <string>Print matrix</string>
+        </property>
         <property name="text">
          <string>Print</string>
         </property>
@@ -215,6 +250,9 @@
       </item>
       <item>
        <widget class="QToolButton" name="matrixClose">
+        <property name="toolTip">
+         <string>Close this window</string>
+        </property>
         <property name="text">
          <string>Close</string>
         </property>

@@ -51,6 +51,9 @@
        </property>
        <item>
         <widget class="QToolButton" name="openFile">
+         <property name="toolTip">
+          <string>Open new photo from disk</string>
+         </property>
          <property name="text">
           <string>Open</string>
          </property>
@@ -62,6 +65,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="captureFile">
+         <property name="toolTip">
+          <string>Load new photo from camera</string>
+         </property>
          <property name="text">
           <string>Camera</string>
          </property>
@@ -72,10 +78,18 @@
         </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="photoFormats"/>
+        <widget class="QComboBox" name="photoFormats">
+         <property name="toolTip">
+          <string>Select format of photo</string>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QComboBox" name="angleFormats"/>
+        <widget class="QComboBox" name="angleFormats">
+         <property name="toolTip">
+          <string>Select angle type</string>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="horizontalSpacer">
@@ -92,6 +106,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="composePhoto">
+         <property name="toolTip">
+          <string>Compose photo matrix for print and save</string>
+         </property>
          <property name="text">
           <string>Compose</string>
          </property>
@@ -106,6 +123,9 @@
        </item>
        <item>
         <widget class="QToolButton" name="passToEditor">
+         <property name="toolTip">
+          <string>Send photo to external editor for tuning</string>
+         </property>
          <property name="text">
           <string>Pass to Editor</string>
          </property>
@@ -160,6 +180,9 @@
           <layout class="QHBoxLayout" name="horizontalLayout">
            <item>
             <widget class="QToolButton" name="rotateLeft">
+             <property name="toolTip">
+              <string>Rotate left</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -171,6 +194,9 @@
            </item>
            <item>
             <widget class="QToolButton" name="rotateRight">
+             <property name="toolTip">
+              <string>Rotate right</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -186,6 +212,9 @@
           <layout class="QGridLayout" name="gridLayout">
            <item row="0" column="1" rowspan="3">
             <widget class="QSlider" name="brightness">
+             <property name="toolTip">
+              <string>Brightness</string>
+             </property>
              <property name="minimum">
               <number>-30</number>
              </property>
@@ -218,6 +247,9 @@
            </item>
            <item row="0" column="3" rowspan="3">
             <widget class="QSlider" name="contrast">
+             <property name="toolTip">
+              <string>Contrast</string>
+             </property>
              <property name="minimum">
               <number>-30</number>
              </property>
@@ -289,6 +321,9 @@
            </item>
            <item row="3" column="1">
             <widget class="QLabel" name="brightnessValue">
+             <property name="toolTip">
+              <string>Brightness</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -302,6 +337,9 @@
            </item>
            <item row="3" column="3">
             <widget class="QLabel" name="contrastValue">
+             <property name="toolTip">
+              <string>Contrast</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -339,6 +377,9 @@
                <height>14</height>
               </size>
              </property>
+             <property name="toolTip">
+              <string>Brightness</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -373,6 +414,9 @@
                <height>14</height>
               </size>
              </property>
+             <property name="toolTip">
+              <string>Contrast</string>
+             </property>
              <property name="text">
               <string/>
              </property>
@@ -385,6 +429,9 @@
          </item>
          <item>
           <widget class="QCheckBox" name="setBW">
+           <property name="toolTip">
+            <string>Transform photo to gray tones</string>
+           </property>
            <property name="text">
             <string>BW</string>
            </property>
@@ -392,6 +439,9 @@
          </item>
          <item>
           <widget class="QPushButton" name="resetChanges">
+           <property name="toolTip">
+            <string>Reset photo changes</string>
+           </property>
            <property name="text">
             <string>Reset</string>
            </property>
@@ -414,6 +464,9 @@
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
             <widget class="QToolButton" name="helpBrowser">
+             <property name="toolTip">
+              <string>Help and info</string>
+             </property>
              <property name="text">
               <string>...</string>
              </property>
@@ -425,6 +478,9 @@
            </item>
            <item>
             <widget class="QToolButton" name="settingsDialog">
+             <property name="toolTip">
+              <string>Settings</string>
+             </property>
              <property name="text">
               <string>...</string>
              </property>
@@ -471,7 +527,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusBar">
+  <widget class="QStatusBar" name="status_bar">
    <property name="sizeGripEnabled">
     <bool>true</bool>
    </property>
