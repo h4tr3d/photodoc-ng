@@ -3,7 +3,7 @@
 **   hatred@inbox.ru
 **   http://hatred.homelinux.net
 **
-**   This file is a part of "%ProjectName%" application
+**   This file is a part of "PhotoDocNG" application
 **
 **   This program is free software; you can redistribute it and/or modify
 **   it under the terms of the version 2 of GNU General Public License as
@@ -11,10 +11,10 @@
 **
 **   For more information see LICENSE and LICENSE.ru files
 **
-**   @file   %FileName%
-**   @date   %DATE%
+**   @file   main.cpp
+**   @date   2010-10-30
 **   @author hatred
-**   @brief
+**   @brief  Entry point file
 **
 **************************************************************************/
 
@@ -42,61 +42,64 @@ int main(int argc, char *argv[])
              QLibraryInfo::location(QLibraryInfo::TranslationsPath));
     a.installTranslator(&qt_translator);
 
+    QString app_translator_file = "photodoc-ng_" + QLocale::system().name() + ".qm";
+    QString app_translator_dir  = PREFIX"/share/photodoc/locale";
+    QString app_translator_path = app_translator_dir + "/" + app_translator_file;
+
+    if (!QFile::exists(app_translator_path))
+    {
+        app_translator_path = app_translator_file;
+    }
+
     // Portable solution
     QTranslator app_translator;
-    app_translator.load("photodoc-ng_" + QLocale::system().name());
+    app_translator.load(app_translator_file);
     a.installTranslator(&app_translator);
 
-    // Register custom types
+    // Register custom types, must be called before settings init
     qRegisterMetaType<PhotoFormat>("PhotoFormat");
     qRegisterMetaTypeStreamOperators<PhotoFormat>("PhotoFormat");
     qRegisterMetaType<MatrixView>("MatrixView");
     qRegisterMetaTypeStreamOperators<MatrixView>("MatrixView");
 
-    // Init settings istance, load settings
+    // Init users settings istance, load settings
     Settings *sets = Settings::instance();
     sets->load();
 
-    // begin STUB
-    // Форматы
+
+    // System wide settings
+    QString config_file = qApp->applicationName() + ".ini";
+    QString config_dir  = PREFIX"/share/photodoc";
+    QString config_path = config_dir + "/" + config_file;
+    Settings system_settings;
+
+    // Portable solution
+    if (!QFile::exists(config_path))
+    {
+        config_path = config_file;
+    }
+    system_settings.load(config_path);
+
+    //
+    // Load some default settings
+    //
+    // Formats
     QList<QVariant> formats = sets->getParam("core.formats").toList();
     if (formats.count() <= 0)
     {
-        formats << qVariantFromValue(PhotoFormat(QString::fromUtf8("Документы (3x4)"), QSizeF(30, 40), 6, 9))
-                << qVariantFromValue(PhotoFormat(QString::fromUtf8("Паспорт (3.5x4.5)"), QSizeF(37, 47), 5, 12))
-                << qVariantFromValue(PhotoFormat(QString::fromUtf8("Личное дело (9x12)"), QSizeF(90, 120), 10, 22));
+        formats = system_settings.getParam("core.formats").toList();
         sets->setParam("core.formats", formats);
     }
 
-
-    // Матрицы
+    // Matrix
     QList<QVariant> matrix = sets->getParam("core.matrix").toList();
     if (matrix.count() <= 0)
     {
-        matrix << qVariantFromValue(MatrixView(QString::fromUtf8("6шт. Документы 3x4 (бумага 10х15)"),
-                                               QSizeF(100, 150),
-                                               QList<QPointF>() << QPointF(15, 10)
-                                                                << QPointF(55, 10)
-                                                                << QPointF(15, 50)
-                                                                << QPointF(55, 50)
-                                                                << QPointF(15, 90)
-                                                                << QPointF(55, 90),
-                                               QString::fromUtf8("Сделано {DATE}, {TIME}"),
-                                               QPointF(5, 140),
-                                               3));
-        matrix << qVariantFromValue(MatrixView(QString::fromUtf8("4шт. Паспорт (бумага 10х15)"),
-                                               QSizeF(100, 150),
-                                               QList<QPointF>() << QPointF(55, 15)
-                                                                << QPointF(10, 15)
-                                                                << QPointF(10, 70)
-                                                                << QPointF(55, 70),
-                                               QString::fromUtf8("Сделано {DATE}, {TIME}"),
-                                               QPointF(5, 14),
-                                               3));
+        matrix = system_settings.getParam("core.matrix").toList();
         sets->setParam("core.matrix", matrix);
     }
-    // end STUB
 
+    // Create main window and start main loop
     MainWindow w;
     w.show();
     int result = a.exec();

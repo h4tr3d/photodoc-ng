@@ -1,0 +1,54 @@
+Intro
+=====
+
+Installation is simple.
+
+You must have installed:
+  - Qt4 4.5 or higher
+  - exiv2
+  - libgphoto2 2.4.0 or higher
+
+Devel packages should be installed also.
+
+
+Get sources
+===========
+
+Download stable tarball from
+  http://code.google.com/p/photodoc-ng/downloads/list
+
+Or take sources from git:
+  git clone http://git.gitorious.org/photodoc-ng/photodoc-ng.git
+
+In near future I plane to add Windows prebuild binaryes (I think without gphoto2).
+
+
+Build and install
+=================
+
+After, unpack source or take it from git and pass next comands:
+  [1] mkdir build
+  [2] cd build
+  [3] lrelease ../photodoc.pro
+  [4] qmake ../photodoc.pro
+  [5] make
+  [6] make install
+
+On step [1] we create build directory and go to into on step [2].
+
+On step [3] we update translations files, ignore next error message on this step:
+  Project ERROR: Can't found one or more translations files. Run 'lrelease' on project file before 'qmake'
+
+On step [4] we create Makefile and ready to build sources. Also, on this step we can add PREFIX options
+to change default prefix '/usr/local':
+  qmake ../photodoc.pro PREFIX=/usr
+
+On step [5] we build sources, and on step [6] we install binaries into system. Also, 
+for packages maintainers there is next pleasing option: ROOT_INSTALL that similar to DESTDIR in CMake and
+autoconf:
+  make INSTALL_ROOT=/tmp/pkg install
+
+We also can uninstall PhotoDocNG with next command:
+  make uninstall
+
+Enjoy!

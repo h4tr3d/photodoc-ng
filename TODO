@@ -1,0 +1,8 @@
+
+  - Interface on tabs without different windows
+  - Shoot photo from gphoto2 dialog
+  - Rules for photo area selection instead 3dots as alternative
+  - Esc and Right mouse undo last dot
+  - Preview for results in small area
+  - Clean up Qt4 gphoto2 classes, delivery it to different library
+  - Migrate to CMake

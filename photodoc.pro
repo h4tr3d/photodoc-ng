@@ -48,7 +48,7 @@ HEADERS  += src/mainwindow.h \
     src/mfiledialog.h \
     src/gphotodialog.h
 
-FORMS    += ui/mainwindow.ui \
+FORMS    += src/mainwindow.ui \
     src/settingsdialog.ui \
     src/formimagematrix.ui \
     src/gphotodialog.ui
@@ -56,4 +56,56 @@ FORMS    += ui/mainwindow.ui \
 RESOURCES += \
     rc/main.qrc
 
-TRANSLATIONS += ts/photodoc-ng_ru_RU.ts
+TRANSLATIONS += ts/photodoc-ng.ts \
+    ts/photodoc-ng_ru_RU.ts
+
+## Additional checks
+TRANSLATIONS_QM = $$replace(TRANSLATIONS, .ts, .qm)
+!build_pass:for(qm, TRANSLATIONS_QM) {
+    !exists($$qm) {
+        error("Can't found one or more translations files. Run 'lrelease' on project file before 'qmake'")
+    }
+}
+
+## Installs
+unix {
+    isEmpty(PREFIX) {
+        PREFIX = /usr/local
+    }
+    DEFINES += PREFIX=\\\"$$PREFIX\\\"
+
+    # dirs
+    BINDIR = $$PREFIX/bin
+    DATADIR = $$PREFIX/share/$$TARGET
+    LOCALEDIR = $$PREFIX/share/$$TARGET/locale
+
+    # files
+    target.path   = $${BINDIR}
+
+    locale.files  = $$TRANSLATIONS_QM
+    locale.path   = $${LOCALEDIR}
+
+    data.files    = PhotoDocNG.ini \
+                    INSTALL \
+                    AUTHORS \
+                    NEWS \
+                    LICENSE \
+                    LICENSE.ru \
+                    TODO \
+                    TODO.ru \
+                    THANKS
+    data.path     = $${DATADIR}
+
+    # install
+    INSTALLS += target locale data
+
+    # brifing
+    !build_pass:message("Install prefix:" $$PREFIX)
+    !build_pass:message("    Binary dir:" $$BINDIR)
+    !build_pass:message("      Data dir:" $$DATADIR)
+    !build_pass:message("    Locale dir:" $$LOCALEDIR)
+}
+
+win32 {
+    DEFINES += PREFIX=\\\"\\\"
+}
