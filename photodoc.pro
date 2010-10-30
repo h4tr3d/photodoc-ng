@@ -29,7 +29,8 @@ SOURCES += src/main.cpp\
     src/gphoto2/photoinfocontainer.cpp \
     src/md5/md5.c \
     src/mfiledialog.cpp \
-    src/gphotodialog.cpp
+    src/gphotodialog.cpp \
+    src/helpbrowser/helpbrowser.cpp
 
 HEADERS  += src/mainwindow.h \
     src/mgraphicsscene.h \
@@ -46,7 +47,8 @@ HEADERS  += src/mainwindow.h \
     src/gphoto2/photoinfocontainer.h \
     src/md5/md5.h \
     src/mfiledialog.h \
-    src/gphotodialog.h
+    src/gphotodialog.h \
+    src/helpbrowser/helpbrowser.h
 
 FORMS    += src/mainwindow.ui \
     src/settingsdialog.ui \
@@ -93,7 +95,9 @@ unix {
                     LICENSE.ru \
                     TODO \
                     TODO.ru \
-                    THANKS
+                    THANKS \
+                    help.html \
+                    help_ru_RU.html
     data.path     = $${DATADIR}
 
     # install

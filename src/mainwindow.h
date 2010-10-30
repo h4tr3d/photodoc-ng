@@ -53,8 +53,8 @@ private slots:
     void on_resetChanges_clicked();
     void on_rotateLeft_clicked();
     void on_rotateRight_clicked();
-
     void on_captureFile_clicked();
+    void on_helpBrowser_clicked();
 
 private:
     void loadFile(QString file_name = QString());

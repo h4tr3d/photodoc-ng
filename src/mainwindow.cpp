@@ -33,6 +33,7 @@
 #include "imageprocess.h"
 #include "mfiledialog.h"
 #include "gphotodialog.h"
+#include "helpbrowser/helpbrowser.h"
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 {
@@ -441,4 +442,28 @@ void MainWindow::on_captureFile_clicked()
         QString file_name = dlg.getDowloadedFileName();
         loadFile(file_name);
     }
+}
+
+void MainWindow::on_helpBrowser_clicked()
+{
+    // TODO: create getName() function for get localized or standart name
+    QString locale_name = QLocale::system().name();
+    QString readme      = "help";
+    QString sys_dir     = PREFIX"/share/photodoc";
+    QString doc_path    = sys_dir + "/" + readme + "_" + locale_name + ".html";
+
+    if (!QFile::exists(doc_path))
+    {
+        doc_path = readme + "_" + locale_name + ".html";
+        if (!QFile::exists(doc_path))
+        {
+            doc_path = sys_dir + "/" + readme + ".html";
+            if (!QFile::exists(doc_path))
+            {
+                doc_path = readme + ".html";
+            }
+        }
+    }
+
+    HelpBrowser::showPage(doc_path);
 }
