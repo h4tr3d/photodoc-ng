@@ -1,3 +1,23 @@
+/**************************************************************************
+**   Copyright (C) 2010 by hatred
+**   hatred@inbox.ru
+**   http://code.google.com/p/photodoc-ng/
+**
+**   This file is a part of "PhotoDoc NG" application
+**
+**   This program is free software; you can redistribute it and/or modify
+**   it under the terms of the version 2 of GNU General Public License as
+**   published by the Free Software Foundation.
+**
+**   For more information see LICENSE and LICENSE.ru files
+**
+**   @file   helpbrowser.cpp
+**   @date   2010-10-31
+**   @author hatred
+**   @brief  Simple HTML help browser
+**
+**************************************************************************/
+
 #include <QFileInfo>
 
 #include "helpbrowser.h"

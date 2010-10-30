@@ -1,9 +1,9 @@
 /**************************************************************************
 **   Copyright (C) 2010 by hatred
 **   hatred@inbox.ru
-**   http://hatred.homelinux.net
+**   http://code.google.com/p/photodoc-ng/
 **
-**   This file is a part of "%ProjectName%" application
+**   This file is a part of "PhotoDoc NG" application
 **
 **   This program is free software; you can redistribute it and/or modify
 **   it under the terms of the version 2 of GNU General Public License as
@@ -11,11 +11,10 @@
 **
 **   For more information see LICENSE and LICENSE.ru files
 **
-**   @file   %FileName%
-**   @date   %DATE%
+**   @file   imageprocess.h
+**   @date   2010-10-31
 **   @author hatred
-**   @brief  Util functions and macrosses for image processing
-**           some code taked from Gimp project
+**   @brief  Image processing functions
 **
 **************************************************************************/
 

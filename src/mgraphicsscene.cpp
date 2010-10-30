@@ -1,7 +1,28 @@
-#include "mgraphicsscene.h"
+/**************************************************************************
+**   Copyright (C) 2010 by hatred
+**   hatred@inbox.ru
+**   http://code.google.com/p/photodoc-ng/
+**
+**   This file is a part of "PhotoDoc NG" application
+**
+**   This program is free software; you can redistribute it and/or modify
+**   it under the terms of the version 2 of GNU General Public License as
+**   published by the Free Software Foundation.
+**
+**   For more information see LICENSE and LICENSE.ru files
+**
+**   @file   mgraphicsschene.cpp
+**   @date   2010-10-31
+**   @author hatred
+**   @brief  Graphics schene sclass that allowed users iteractions like
+**           dot pasting
+**
+**************************************************************************/
 
 #include <QPainter>
 #include <QGraphicsSceneMouseEvent>
+
+#include "mgraphicsscene.h"
 
 //
 MGraphicsScene::MGraphicsScene( QObject *parent ) : QGraphicsScene(parent)
