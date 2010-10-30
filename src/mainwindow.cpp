@@ -57,7 +57,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
 
     resetTransformations();
 
-    loadFile(":/samples/images/start.jpg");
+    loadFile(":/interface/images/logo.png");
 
     QString title = QString("%1 %2")
                         .arg(qApp->applicationName())

@@ -25,11 +25,11 @@
         <file>images/bottons/list-add.png</file>
         <file>images/bottons/list-remove.png</file>
         <file>images/bottons/view-refresh.png</file>
+        <file>images/logo.png</file>
+        <file>images/logo.svg</file>
     </qresource>
     <qresource prefix="/process">
         <file>images/photo/ellipse.png</file>
     </qresource>
-    <qresource prefix="/samples">
-        <file>images/start.jpg</file>
-    </qresource>
+    <qresource prefix="/samples"/>
 </RCC>
