@@ -42,7 +42,6 @@ MFileDialog::~MFileDialog()
     if (_preview != 0)
     {
         delete _preview;
-        _preview = 0;
     }
 }
 

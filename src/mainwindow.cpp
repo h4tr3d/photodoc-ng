@@ -42,7 +42,11 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     _scene = new MGraphicsScene(this);
     _scene->setSceneRect(0, 0, 640, 480);
     view->setScene(_scene);
-    _image_item = 0;
+    _image_item  = 0;
+    _need_update = true; // must be placed before loadFormats() and filling angles
+                         // to prevent use as undefinned in
+                         //     on_brightness_valueChanged(int) and
+                         //     on_contast_valueChanged(int)
 
     loadFormats();
 
@@ -152,6 +156,10 @@ QImage MainWindow::formCellImage()
     }
 
     int index = photoFormats->currentIndex();
+    if (index < 0 || index >= _formats.count())
+    {
+        return img;
+    }
     PhotoFormat format = _formats.at(index);
 
     QImage original_image = applyGeometryTransformations(_original_image);
@@ -329,6 +337,11 @@ void MainWindow::on_composePhoto_clicked()
     }
 
     int index = photoFormats->currentIndex();
+    if (index < 0 || index >= _formats.count())
+    {
+        return;
+    }
+
     PhotoFormat format = _formats.at(index);
 
     FormImageMatrix dialog(this, img, _external_file_name, format.getFormatName());

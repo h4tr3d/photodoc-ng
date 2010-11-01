@@ -7,3 +7,4 @@ object_script.*.*
 *.pro.user.*
 .qdevelop
 *.qm
+src/valgrind.txt
