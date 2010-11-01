@@ -34,7 +34,8 @@ After, unpack source or take it from git and pass next comands:
   [5] make
   [6] make install
 
-On step [1] we create build directory and go to into on step [2].
+On step [1] we create build directory and go to into on step [2]. With some versions of Qt
+steps [1] and [2] must be removed: qmake process fails (qmake bug?)
 
 On step [3] we update translations files, ignore next error message on this step:
   Project ERROR: Can't found one or more translations files. Run 'lrelease' on project file before 'qmake'
@@ -50,5 +51,18 @@ autoconf:
 
 We also can uninstall PhotoDocNG with next command:
   make uninstall
+
+
+Usage without install (portable version)
+========================================
+
+Do steps [1]-[5]. After do next steps:
+  [7]  create target directory, like 'photodoc-portable'
+  [8]  copy 'photodoc' executable to this directory
+  [9]  copy ts/*.qm files to this directory
+  [10] copy PhotoDocNG.ini to this directory
+  [11] copy help*.html to this directory
+
+Also you must copy AUTHORS and LICENSE file to target directory
 
 Enjoy!
