@@ -6,12 +6,15 @@
 
 QT       += core gui
 
-TARGET = photodoc
+TARGET = photodoc-ng
 TEMPLATE = app
 CONFIG += warn_on link_pkgconfig
 
-PKGCONFIG += exiv2 libgphoto2
-DEFINES += HAVE_GPHOTO2
+PKGCONFIG += exiv2
+!win32 {
+  DEFINES   += HAVE_GPHOTO2
+  PKGCONFIG += libgphoto2
+}
 
 SOURCES += src/main.cpp\
         src/mainwindow.cpp \

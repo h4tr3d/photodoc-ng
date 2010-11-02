@@ -103,7 +103,7 @@ const char *getUserName()
             return NULL;
     }
 
-    GetUserName(user_name, &size);
+    GetUserNameA(user_name, &size);
 #else
     struct passwd *passwd = getpwuid(getuid());
     if (passwd == NULL)

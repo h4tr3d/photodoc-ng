@@ -29,8 +29,8 @@ Build and install
 After, unpack source or take it from git and pass next comands:
   [1] mkdir build
   [2] cd build
-  [3] lrelease ../photodoc.pro
-  [4] qmake ../photodoc.pro
+  [3] lrelease ../photodoc-ng.pro
+  [4] qmake ../photodoc-ng.pro
   [5] make
   [6] make install
 
@@ -42,7 +42,7 @@ On step [3] we update translations files, ignore next error message on this step
 
 On step [4] we create Makefile and ready to build sources. Also, on this step we can add PREFIX options
 to change default prefix '/usr/local':
-  qmake ../photodoc.pro PREFIX=/usr
+  qmake ../photodoc-ng.pro PREFIX=/usr
 
 On step [5] we build sources, and on step [6] we install binaries into system. Also, 
 for packages maintainers there is next pleasing option: ROOT_INSTALL that similar to DESTDIR in CMake and
@@ -58,7 +58,7 @@ Usage without install (portable version)
 
 Do steps [1]-[5]. After do next steps:
   [7]  create target directory, like 'photodoc-portable'
-  [8]  copy 'photodoc' executable to this directory
+  [8]  copy 'photodoc-ng' executable to this directory
   [9]  copy ts/*.qm files to this directory
   [10] copy PhotoDocNG.ini to this directory
   [11] copy help*.html to this directory

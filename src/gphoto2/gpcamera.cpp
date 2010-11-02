@@ -1683,8 +1683,8 @@ int GPCamera::autoDetect(QStringList& models, QStringList& ports)
     gp_list_free(camList);
     return 0;
 #else
-    Q_UNUSED(model);
-    Q_UNUSED(port);
+    Q_UNUSED(models);
+    Q_UNUSED(ports);
     return  -1;
 #endif /* HAVE_GPHOTO2 */
 }
