@@ -8,4 +8,5 @@ object_script.*.*
 .qdevelop
 *.qm
 src/valgrind.txt
-scripte/valgrind.txt
+scripts/valgrind.txt
+*-win32
