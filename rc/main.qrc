@@ -1,30 +1,30 @@
 <RCC>
     <qresource prefix="/interface">
-        <file>images/bottons/camera.png</file>
-        <file>images/bottons/cancel.png</file>
-        <file>images/bottons/compose-image.png</file>
-        <file>images/bottons/donate.png</file>
-        <file>images/bottons/help.png</file>
-        <file>images/bottons/link.png</file>
-        <file>images/bottons/matrix-settings.png</file>
-        <file>images/bottons/new.png</file>
-        <file>images/bottons/open.png</file>
-        <file>images/bottons/remove.png</file>
-        <file>images/bottons/rotate-left.png</file>
-        <file>images/bottons/rotate-right.png</file>
-        <file>images/bottons/save.png</file>
-        <file>images/bottons/settings.png</file>
-        <file>images/bottons/to-editor.png</file>
+        <file>images/buttons/camera.png</file>
+        <file>images/buttons/cancel.png</file>
+        <file>images/buttons/compose-image.png</file>
+        <file>images/buttons/donate.png</file>
+        <file>images/buttons/help.png</file>
+        <file>images/buttons/link.png</file>
+        <file>images/buttons/matrix-settings.png</file>
+        <file>images/buttons/new.png</file>
+        <file>images/buttons/open.png</file>
+        <file>images/buttons/remove.png</file>
+        <file>images/buttons/rotate-left.png</file>
+        <file>images/buttons/rotate-right.png</file>
+        <file>images/buttons/save.png</file>
+        <file>images/buttons/settings.png</file>
+        <file>images/buttons/to-editor.png</file>
         <file>images/labels/brightness.png</file>
         <file>images/labels/contrast.png</file>
         <file>images/icon.png</file>
-        <file>images/bottons/print.png</file>
-        <file>images/bottons/apply.png</file>
-        <file>images/bottons/down.png</file>
-        <file>images/bottons/up.png</file>
-        <file>images/bottons/list-add.png</file>
-        <file>images/bottons/list-remove.png</file>
-        <file>images/bottons/view-refresh.png</file>
+        <file>images/buttons/print.png</file>
+        <file>images/buttons/apply.png</file>
+        <file>images/buttons/down.png</file>
+        <file>images/buttons/up.png</file>
+        <file>images/buttons/list-add.png</file>
+        <file>images/buttons/list-remove.png</file>
+        <file>images/buttons/view-refresh.png</file>
         <file>images/logo.png</file>
         <file>images/logo.svg</file>
     </qresource>
