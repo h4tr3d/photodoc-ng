@@ -333,6 +333,12 @@ void MainWindow::setShortcuts()
             this,     SLOT(on_openFile_clicked()));
     _shortcuts << shortcut;
 
+    // Save
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_S, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(on_saveFile_clicked()));
+    _shortcuts << shortcut;
+
     // Open from gphoto
     shortcut = new QShortcut(Qt::CTRL + Qt::Key_G, this);
     connect(shortcut, SIGNAL(activated()),
