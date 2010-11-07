@@ -70,6 +70,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     setWindowTitle(title);
 
     status_bar->showMessage(tr("Load photo, select three dots: on pate (red), on bridge of nose (green) and on chin (blue) and turn Compose button"));
+
+    setShortcuts();
+}
+
+MainWindow::~MainWindow()
+{
 }
 
 void MainWindow::changeEvent(QEvent *e)
@@ -304,6 +310,43 @@ void MainWindow::resetTransformations()
     _rotate = 0.0;
 }
 
+void MainWindow::setShortcuts()
+{
+    QShortcut *shortcut;
+    _shortcuts.clear(); // ???
+
+    // Quit
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_Q, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(close()));
+    _shortcuts << shortcut;
+
+    // Pass to editor
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_E, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(on_passToEditor_clicked()));
+    _shortcuts << shortcut;
+
+    // Open
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_O, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(on_openFile_clicked()));
+    _shortcuts << shortcut;
+
+    // Open from gphoto
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_G, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(on_captureFile_clicked()));
+    _shortcuts << shortcut;
+
+    // Compose
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_Space, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(on_composePhoto_clicked()));
+    _shortcuts << shortcut;
+
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Slots for signals
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -479,4 +522,41 @@ void MainWindow::on_helpBrowser_clicked()
     }
 
     HelpBrowser::showPage(doc_path);
+}
+
+
+void MainWindow::on_saveFile_clicked()
+{
+    QString     file_name;
+    QString     suffix;
+    MFileDialog dlg(this,
+                    tr("Save Image"),
+                    "",
+                    tr("All Images (*.jpg *.jpeg *.png *.tiff *.bmp)"));
+
+    suffix = Settings::instance()->getParam("image.format").toString();
+    if (suffix.isEmpty())
+    {
+        suffix = "jpeg";
+    }
+
+    dlg.setAcceptMode(QFileDialog::AcceptSave);
+    dlg.setDefaultSuffix(suffix);
+
+    if (dlg.exec() && dlg.selectedFiles().count() == 1)
+    {
+        file_name = dlg.selectedFiles().at(0);
+    }
+
+    if (file_name.isEmpty())
+    {
+        return;
+    }
+
+    // Apply transformations and save
+    QImage img;
+    img = applyGeometryTransformations(_original_image);
+    img = applyTransformations(img);
+
+    img.save(file_name, 0, 100);
 }

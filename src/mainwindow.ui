@@ -59,7 +59,7 @@
          </property>
          <property name="icon">
           <iconset resource="../rc/main.qrc">
-           <normaloff>:/interface/images/bottons/open.png</normaloff>:/interface/images/bottons/open.png</iconset>
+           <normaloff>:/interface/images/buttons/open.png</normaloff>:/interface/images/buttons/open.png</iconset>
          </property>
         </widget>
        </item>
@@ -73,7 +73,35 @@
          </property>
          <property name="icon">
           <iconset resource="../rc/main.qrc">
-           <normaloff>:/interface/images/bottons/camera.png</normaloff>:/interface/images/bottons/camera.png</iconset>
+           <normaloff>:/interface/images/buttons/camera.png</normaloff>:/interface/images/buttons/camera.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="saveFile">
+         <property name="toolTip">
+          <string>Save current file with processing but without crop</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+         <property name="icon">
+          <iconset resource="../rc/main.qrc">
+           <normaloff>:/interface/images/buttons/save.png</normaloff>:/interface/images/buttons/save.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="Line" name="line_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
          </property>
         </widget>
        </item>
@@ -114,7 +142,7 @@
          </property>
          <property name="icon">
           <iconset resource="../rc/main.qrc">
-           <normaloff>:/interface/images/bottons/compose-image.png</normaloff>:/interface/images/bottons/compose-image.png</iconset>
+           <normaloff>:/interface/images/buttons/compose-image.png</normaloff>:/interface/images/buttons/compose-image.png</iconset>
          </property>
          <property name="toolButtonStyle">
           <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -124,14 +152,14 @@
        <item>
         <widget class="QToolButton" name="passToEditor">
          <property name="toolTip">
-          <string>Send photo to external editor for tuning</string>
+          <string>Send cropped photo to external editor for tuning</string>
          </property>
          <property name="text">
           <string>Pass to Editor</string>
          </property>
          <property name="icon">
           <iconset resource="../rc/main.qrc">
-           <normaloff>:/interface/images/bottons/to-editor.png</normaloff>:/interface/images/bottons/to-editor.png</iconset>
+           <normaloff>:/interface/images/buttons/to-editor.png</normaloff>:/interface/images/buttons/to-editor.png</iconset>
          </property>
          <property name="toolButtonStyle">
           <enum>Qt::ToolButtonTextBesideIcon</enum>
@@ -188,7 +216,7 @@
              </property>
              <property name="icon">
               <iconset resource="../rc/main.qrc">
-               <normaloff>:/interface/images/bottons/rotate-left.png</normaloff>:/interface/images/bottons/rotate-left.png</iconset>
+               <normaloff>:/interface/images/buttons/rotate-left.png</normaloff>:/interface/images/buttons/rotate-left.png</iconset>
              </property>
             </widget>
            </item>
@@ -202,7 +230,7 @@
              </property>
              <property name="icon">
               <iconset resource="../rc/main.qrc">
-               <normaloff>:/interface/images/bottons/rotate-right.png</normaloff>:/interface/images/bottons/rotate-right.png</iconset>
+               <normaloff>:/interface/images/buttons/rotate-right.png</normaloff>:/interface/images/buttons/rotate-right.png</iconset>
              </property>
             </widget>
            </item>
@@ -472,7 +500,7 @@
              </property>
              <property name="icon">
               <iconset resource="../rc/main.qrc">
-               <normaloff>:/interface/images/bottons/help.png</normaloff>:/interface/images/bottons/help.png</iconset>
+               <normaloff>:/interface/images/buttons/help.png</normaloff>:/interface/images/buttons/help.png</iconset>
              </property>
             </widget>
            </item>
@@ -486,7 +514,7 @@
              </property>
              <property name="icon">
               <iconset resource="../rc/main.qrc">
-               <normaloff>:/interface/images/bottons/settings.png</normaloff>:/interface/images/bottons/settings.png</iconset>
+               <normaloff>:/interface/images/buttons/settings.png</normaloff>:/interface/images/buttons/settings.png</iconset>
              </property>
             </widget>
            </item>

@@ -29,7 +29,7 @@
 #include <QDialog>
 #include <QApplication>
 //
-class HelpBrowser : public QDialog
+class HelpBrowser : public QWidget
 {
 Q_OBJECT
 private slots:

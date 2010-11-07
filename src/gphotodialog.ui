@@ -40,7 +40,7 @@
         </property>
         <property name="icon">
          <iconset resource="../rc/main.qrc">
-          <normaloff>:/interface/images/bottons/view-refresh.png</normaloff>:/interface/images/bottons/view-refresh.png</iconset>
+          <normaloff>:/interface/images/buttons/view-refresh.png</normaloff>:/interface/images/buttons/view-refresh.png</iconset>
         </property>
        </widget>
       </item>

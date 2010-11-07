@@ -22,6 +22,7 @@
 #define FORMIMAGEMATRIX_H
 
 #include <QPrinter>
+#include <QShortcut>
 
 #include "ui_formimagematrix.h"
 
@@ -37,6 +38,7 @@ public:
                              QImage   cell          = QImage(),
                              QString  external_name = QString(),
                              QString  document_type = QString());
+    ~FormImageMatrix();
 
 protected:
     void changeEvent(QEvent *e);
@@ -73,6 +75,8 @@ private:
     QList<MatrixView> _matrices;
 
     QPrinter *_printer;
+
+    QList<QShortcut*> _shortcuts;
 
 };
 

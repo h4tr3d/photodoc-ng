@@ -25,7 +25,7 @@
 HelpBrowser::HelpBrowser(const QString& path,
                          const QString& page,
                          QWidget *parent)
-    : QDialog(parent, Qt::Window)
+    : QWidget(parent, Qt::Window)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     pbBack     = new QPushButton(tr("<<"), this);
@@ -88,6 +88,6 @@ void HelpBrowser::showPage(const QString &page)
     HelpBrowser *browser = new HelpBrowser(fi.absolutePath(),
                                            fi.fileName());
     browser->resize(800, 400);
-    browser->exec();
+    browser->show();
 }
 

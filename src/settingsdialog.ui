@@ -175,7 +175,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/up.png</normaloff>:/interface/images/bottons/up.png</iconset>
+             <normaloff>:/interface/images/buttons/up.png</normaloff>:/interface/images/buttons/up.png</iconset>
            </property>
           </widget>
          </item>
@@ -189,7 +189,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/down.png</normaloff>:/interface/images/bottons/down.png</iconset>
+             <normaloff>:/interface/images/buttons/down.png</normaloff>:/interface/images/buttons/down.png</iconset>
            </property>
           </widget>
          </item>
@@ -206,7 +206,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/list-remove.png</normaloff>:/interface/images/bottons/list-remove.png</iconset>
+             <normaloff>:/interface/images/buttons/list-remove.png</normaloff>:/interface/images/buttons/list-remove.png</iconset>
            </property>
           </widget>
          </item>
@@ -223,7 +223,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/apply.png</normaloff>:/interface/images/bottons/apply.png</iconset>
+             <normaloff>:/interface/images/buttons/apply.png</normaloff>:/interface/images/buttons/apply.png</iconset>
            </property>
           </widget>
          </item>
@@ -240,7 +240,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/list-add.png</normaloff>:/interface/images/bottons/list-add.png</iconset>
+             <normaloff>:/interface/images/buttons/list-add.png</normaloff>:/interface/images/buttons/list-add.png</iconset>
            </property>
           </widget>
          </item>
@@ -367,7 +367,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/up.png</normaloff>:/interface/images/bottons/up.png</iconset>
+             <normaloff>:/interface/images/buttons/up.png</normaloff>:/interface/images/buttons/up.png</iconset>
            </property>
           </widget>
          </item>
@@ -381,7 +381,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/down.png</normaloff>:/interface/images/bottons/down.png</iconset>
+             <normaloff>:/interface/images/buttons/down.png</normaloff>:/interface/images/buttons/down.png</iconset>
            </property>
           </widget>
          </item>
@@ -398,7 +398,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/list-remove.png</normaloff>:/interface/images/bottons/list-remove.png</iconset>
+             <normaloff>:/interface/images/buttons/list-remove.png</normaloff>:/interface/images/buttons/list-remove.png</iconset>
            </property>
           </widget>
          </item>
@@ -415,7 +415,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/apply.png</normaloff>:/interface/images/bottons/apply.png</iconset>
+             <normaloff>:/interface/images/buttons/apply.png</normaloff>:/interface/images/buttons/apply.png</iconset>
            </property>
           </widget>
          </item>
@@ -432,7 +432,7 @@
            </property>
            <property name="icon">
             <iconset resource="../rc/main.qrc">
-             <normaloff>:/interface/images/bottons/list-add.png</normaloff>:/interface/images/bottons/list-add.png</iconset>
+             <normaloff>:/interface/images/buttons/list-add.png</normaloff>:/interface/images/buttons/list-add.png</iconset>
            </property>
           </widget>
          </item>
@@ -476,7 +476,7 @@
              </property>
              <property name="icon">
               <iconset resource="../rc/main.qrc">
-               <normaloff>:/interface/images/bottons/list-remove.png</normaloff>:/interface/images/bottons/list-remove.png</iconset>
+               <normaloff>:/interface/images/buttons/list-remove.png</normaloff>:/interface/images/buttons/list-remove.png</iconset>
              </property>
             </widget>
            </item>
@@ -523,7 +523,7 @@
              </property>
              <property name="icon">
               <iconset resource="../rc/main.qrc">
-               <normaloff>:/interface/images/bottons/list-add.png</normaloff>:/interface/images/bottons/list-add.png</iconset>
+               <normaloff>:/interface/images/buttons/list-add.png</normaloff>:/interface/images/buttons/list-add.png</iconset>
              </property>
             </widget>
            </item>

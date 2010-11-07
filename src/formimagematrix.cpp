@@ -57,6 +57,26 @@ FormImageMatrix::FormImageMatrix(QWidget *parent,
 
     _printer = 0;
     _document_type = document_type;
+
+    // Shortcuts
+    QShortcut *shortcut;
+
+    // Quit
+    shortcut = new QShortcut(Qt::CTRL + Qt::Key_P, this);
+    connect(shortcut, SIGNAL(activated()),
+            this,     SLOT(on_matrixPrint_clicked()));
+    _shortcuts << shortcut;
+
+}
+
+FormImageMatrix::~FormImageMatrix()
+{
+    for (int i = 0; i < _shortcuts.count(); i++)
+    {
+        // ???
+        delete _shortcuts.at(i);
+        _shortcuts.clear();
+    }
 }
 
 void FormImageMatrix::changeEvent(QEvent *e)

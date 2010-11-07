@@ -22,6 +22,7 @@
 #define MAINWINDOW_H
 
 #include <QGraphicsPixmapItem>
+#include <QShortcut>
 
 #include "ui_mainwindow.h"
 #include "mgraphicsscene.h"
@@ -33,6 +34,7 @@ class MainWindow : public QMainWindow, private Ui::MainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
+    ~MainWindow();
 
 protected:
     void changeEvent(QEvent *e);
@@ -55,6 +57,8 @@ private slots:
     void on_rotateRight_clicked();
     void on_captureFile_clicked();
     void on_helpBrowser_clicked();
+
+    void on_saveFile_clicked();
 
 private:
     void loadFile(QString file_name = QString());
@@ -80,6 +84,9 @@ private:
     // Geometry transformation in different function
     QImage applyGeometryTransformations(QImage &src);
 
+    // Set shortcuts
+    void setShortcuts();
+
 private:
     QImage               _original_image;
     QImage               _small_image;
@@ -87,6 +94,7 @@ private:
     QGraphicsPixmapItem *_image_item;
 
     QList<PhotoFormat> _formats;
+    QList<QShortcut*>  _shortcuts;
 
     QString            _external_file_name;
 
@@ -94,10 +102,8 @@ private:
     bool              _need_update;
     qreal             _brightness;
     qreal             _contrast;
-
-    bool              _is_grayscale;
-
     qreal             _rotate;
+    bool              _is_grayscale;
 };
 
 #endif // MAINWINDOW_H
