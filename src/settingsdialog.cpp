@@ -19,6 +19,7 @@
 **************************************************************************/
 
 #include <QFileDialog>
+#include <QVariant>
 
 #include "settingsdialog.h"
 
@@ -130,7 +131,7 @@ void SettingsDialog::loadSettings()
     _formats.clear();
     for (i = 0; i < formats.count(); i++)
     {
-        _formats << qVariantValue<PhotoFormat>(formats.at(i));
+        _formats << formats.at(i).value<PhotoFormat>();
         formatsList->addItem(_formats.last().getFormatName());
     }
 
@@ -141,7 +142,7 @@ void SettingsDialog::loadSettings()
     _matrices.clear();
     for (i = 0; i < matrices.count(); i++)
     {
-        _matrices << qVariantValue<MatrixView>(matrices.at(i));
+        _matrices << matrices.at(i).value<MatrixView>();
         matrixList->addItem(_matrices.last().getName());
     }
 

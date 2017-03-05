@@ -38,6 +38,7 @@ public:
 
 protected:
     void changeEvent(QEvent *e);
+    void paintEvent(QPaintEvent *e);
 
 private slots:
     void on_openFile_clicked();
@@ -88,6 +89,7 @@ private:
     void setShortcuts();
 
 private:
+    QSize                _viewSize;
     QImage               _original_image;
     QImage               _small_image;
     MGraphicsScene      *_scene;

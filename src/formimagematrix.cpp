@@ -24,6 +24,7 @@
 #include <QFileInfo>
 #include <QPrintDialog>
 #include <QPrintPreviewDialog>
+#include <QVariant>
 
 #include <exiv2/image.hpp>
 #include <exiv2/exif.hpp>
@@ -100,7 +101,7 @@ void FormImageMatrix::loadMatrices()
     matrixType->clear();
     for (int i = 0; i < count; i++)
     {
-        _matrices << qVariantValue<MatrixView>(list.at(i));
+        _matrices << list.at(i).value<MatrixView>();
         matrixType->addItem(_matrices.last().getName());
     }
 }

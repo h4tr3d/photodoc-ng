@@ -22,6 +22,8 @@
 #include <QMessageBox>
 #include <QProcess>
 #include <QSplitter>
+#include <QVariant>
+#include <QPaintEvent>
 
 #include <iostream>
 
@@ -40,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent)
     setupUi(this);
 
     _scene = new MGraphicsScene(this);
-    _scene->setSceneRect(0, 0, 640, 480);
+    //_scene->setSceneRect(0, 0, 640, 480);
     view->setScene(_scene);
     _image_item  = 0;
     _need_update = true; // must be placed before loadFormats() and filling angles
@@ -90,6 +92,22 @@ void MainWindow::changeEvent(QEvent *e)
     }
 }
 
+void MainWindow::paintEvent(QPaintEvent* /*e*/)
+{
+    QSize newSize = view->viewport()->geometry().size();
+    if (newSize != _viewSize) {
+        _viewSize = newSize;
+        qDebug() << "onPaint:" << view->sceneRect();
+        view->setSceneRect(QRectF(0, 0, _viewSize.width(), _viewSize.height()));
+        view->updateSceneRect(QRectF(0, 0, _viewSize.width(), _viewSize.height()));
+        _scene->setSceneRect(QRectF(0, 0, _viewSize.width(), _viewSize.height()));
+        qDebug() << "onPaint:" << view->sceneRect();
+        if (_image_item) {
+            updateImageTransformations();
+        }
+    }
+}
+
 void MainWindow::loadFile(QString file_name)
 {
     if (file_name.isEmpty())
@@ -117,7 +135,7 @@ void MainWindow::loadFile(QString file_name)
     }
 
     _original_image = tmp;
-    _small_image    = _original_image.scaled(640, 480, Qt::KeepAspectRatio);
+    _small_image    = _original_image.scaled(_viewSize.width(), _viewSize.height(), Qt::KeepAspectRatio);
     _scene->clear();
     _image_item = _scene->addPixmap(QPixmap::fromImage(_small_image));
     _external_file_name = "";
@@ -133,7 +151,7 @@ void MainWindow::loadFormats()
     _formats.clear();
     for (int i = 0; i < count; i++)
     {
-        PhotoFormat format = qVariantValue<PhotoFormat>(list.at(i));
+        PhotoFormat format = list.at(i).value<PhotoFormat>();
         _formats << format;
     }
 
@@ -170,7 +188,15 @@ QImage MainWindow::formCellImage()
 
     QImage original_image = applyGeometryTransformations(_original_image);
     QImage small_image    = applyGeometryTransformations(_small_image);
-    small_image           = small_image.scaled(640, 480, Qt::KeepAspectRatio);
+    small_image           = small_image.scaled(_viewSize.width(), _viewSize.height(), Qt::KeepAspectRatio);
+
+    if (_image_item && _image_item->offset() != QPointF()) {
+        auto const offset = _image_item->offset();
+        for (auto& dot : dots) {
+            dot.setX(dot.x() - offset.x());
+            dot.setY(dot.y() - offset.y());
+        }
+    }
 
     QRectF rect_ = getPhotoRect(original_image.size(),
                                 small_image.size(),
@@ -288,10 +314,22 @@ void MainWindow::updateImageTransformations()
     QImage img;
 
     img = applyGeometryTransformations(_original_image);
-    img = img.scaled(640, 480, Qt::KeepAspectRatio);
+    img = img.scaled(_viewSize.width(), _viewSize.height(), Qt::KeepAspectRatio);
     img = applyTransformations(img);
 
     _image_item->setPixmap(QPixmap::fromImage(img));
+
+    qreal offsetx = 0.0;
+    if (img.width() < _viewSize.width()) {
+        offsetx = (_viewSize.width() - img.width()) / 2.0;
+    }
+
+    qreal offsety = 0.0;
+    if (img.height() < _viewSize.height()) {
+        offsety = (_viewSize.height() - img.height()) / 2.0;
+    }
+
+    _image_item->setOffset(offsetx, offsety);
 }
 
 void MainWindow::resetTransformations()

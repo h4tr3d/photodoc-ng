@@ -101,6 +101,7 @@ private:
 
     // опорные точки
     QList<QPointF> _points;
+    QRectF _sceneRect;
 
     // параметры рамки фотографии
     PhotoFormat    _format;

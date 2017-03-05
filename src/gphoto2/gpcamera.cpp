@@ -32,6 +32,7 @@ extern "C"
 {
 #include <utime.h>
 }
+#include <unistd.h>
 
 // C++ includes
 
@@ -954,7 +955,7 @@ bool GPCamera::downloadItem(const QString& folder, const QString& itemName,
         return false;
     }
     // dup fd, passing fd control to gphoto2 later
-    int handle = dup(file.handle());
+    int handle = ::dup(file.handle());
     if (handle == -1)
     {
         qDebug() << "Failed to dup file descriptor";
@@ -1203,10 +1204,20 @@ bool GPCamera::uploadItem(const QString& folder, const QString& itemName, const 
 
     d->status = new GPStatus;
 
+    
+    // GPhoto2 < 2.5
+    //errorCode = gp_camera_folder_put_file(d->camera,
+    //                                      QFile::encodeName(folder),
+    //                                      cfile,
+    //                                      d->status->context);
     errorCode = gp_camera_folder_put_file(d->camera,
                                           QFile::encodeName(folder),
+                                          QFile::encodeName(itemName),
+                                          GP_FILE_TYPE_NORMAL,
                                           cfile,
                                           d->status->context);
+    
+    
     if (errorCode != GP_OK)
     {
         qDebug() << "Failed to upload item to camera!";
@@ -1295,6 +1306,18 @@ bool GPCamera::uploadItem(const QString& folder, const QString& itemName, const 
 #endif /* HAVE_GPHOTO2 */
 }
 
+namespace {
+
+QString html_escape(const QString& str)
+{
+    // Qt5:
+    return str.toHtmlEscaped();
+    // Qt4:
+    //return Qt::escape(str);
+}
+
+} // ::anonymous
+
 bool GPCamera::cameraSummary(QString& summary)
 {
 #ifdef HAVE_GPHOTO2
@@ -1325,10 +1348,10 @@ bool GPCamera::cameraSummary(QString& summary)
                     "Model: <b>%2</b><br/>"
                     "Port: <b>%3</b><br/>"
                     "Path: <b>%4</b><br/><br/>")
-                    .arg(Qt::escape(title()))
-                    .arg(Qt::escape(model()))
-                    .arg(Qt::escape(port()))
-                    .arg(Qt::escape(path()));
+                    .arg(html_escape(title()))
+                    .arg(html_escape(model()))
+                    .arg(html_escape(port()))
+                    .arg(html_escape(path()));
 
     summary += QCoreApplication::tr("Thumbnails: <b>%1</b><br/>"
                     "Capture image: <b>%2</b><br/>"
@@ -1509,7 +1532,10 @@ void GPCamera::getSupportedPorts(QStringList& plist)
         for (int i = 0 ; i < numPorts ; ++i)
         {
             gp_port_info_list_get_info( list, i, &info );
-            plist.append( info.path );
+            char *path;
+            gp_port_info_get_path(info, &path);
+            if (path)
+                plist.append(path);
         }
     }
 

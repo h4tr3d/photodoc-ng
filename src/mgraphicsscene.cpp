@@ -37,6 +37,22 @@ MGraphicsScene::MGraphicsScene( QObject *parent ) : QGraphicsScene(parent)
     _format.setTopPateDistance(6);
     _format.setNoseChinDistance(9);
 
+    _sceneRect = sceneRect();
+
+    connect(this, &QGraphicsScene::sceneRectChanged, this, [this](const QRectF &rect) {
+        if (!_points.empty()) {
+            //auto xOffset = rect.x() - _sceneRect.x();
+            auto xScale = rect.width() / _sceneRect.width();
+            //auto yOffset = rect.y() - _sceneRect.y();
+            auto yScale = rect.height() / _sceneRect.height();
+            for (auto &point : _points) {
+                point.setX(point.x() * xScale);
+                point.setY(point.y() * yScale);
+            }
+            update();
+        }
+        _sceneRect = rect;
+    });
 }
 
 void MGraphicsScene::mousePressEvent(QGraphicsSceneMouseEvent *mouseEvent)
