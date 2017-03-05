@@ -13,3 +13,4 @@ Main features is similar to PhotoDoc 1.0.5, with next exceptions:
   - Currently work only with cameras via gphoto2 and open images from disk. 
   - Currently does not support D'n'D photos to main Window.
 
+Screenshots of apllication avail [here](https://github.com/h4tr3d/photodoc-ng/wiki/Screenshots)
